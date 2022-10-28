@@ -6,9 +6,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'bgcolor': '#27296D',
+        'bgcolor': '#3F0071',
         'bgtext': '#DCD6F7',
-        'hoverbg' : '#D6C8FF',
+        'hoverbg' : '#7E6BC4',
       },
       fontFamily:{
         'mono':['Azeret Mono', 'monospace']
