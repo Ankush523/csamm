@@ -5,18 +5,20 @@ import {
   MenuButton,
   MenuList,
   MenuItem,
-  MenuItemOption,
-  MenuGroup,
-  MenuOptionGroup,
-  MenuDivider,
   Button,
 } from "@chakra-ui/react";
 import { Image } from "@chakra-ui/react";
 import { ChevronDownIcon } from "@chakra-ui/icons";
-
+import GetContract from "../hooks/GetContract";
 const Swap = () => {
-    const [swaptoken1, setSwapToken1] = useState('Select Token');
-    const [swaptoken2, setSwapToken2] = useState('Select Token');
+  const [swaptoken1, setSwapToken1] = useState('Select Token');
+  const [swaptoken2, setSwapToken2] = useState('Select Token');
+  const [swapamount, setSwapAmount] = useState(0);
+  const contract = GetContract();
+  const swap = async() => {
+    const tx = await contract.swap(swaptoken1, swapamount);
+    await tx.wait();
+  }
 
   return (
     <div className="flex flex-col justify-center items-center">
@@ -31,7 +33,7 @@ const Swap = () => {
             <MenuButton as={Button} rightIcon={<ChevronDownIcon />} className="mr-[10px] h-[30px] my-[10px] font-semibold text-xl rounded-xl bg-slate-200 px-[10px]">
                 <label>{swaptoken1}</label>
             </MenuButton>
-            <MenuList className="bg-slate-900 text-white w-[160px] px-[10px] rounded-xl ml-[1px] pt-[3px]">
+            <MenuList className="bg-slate-900 text-white w-[fit-content] px-[10px] rounded-xl ml-[1px] pt-[3px]">
               <MenuItem  onClick={() => setSwapToken1('MATIC')}>
                 <Image
                   boxSize="2rem"
@@ -65,7 +67,7 @@ const Swap = () => {
             <MenuButton as={Button} rightIcon={<ChevronDownIcon />} className="mr-[10px] h-[30px] my-[10px] font-semibold text-xl rounded-xl bg-slate-200 px-[10px]">
                 <label>{swaptoken2}</label>
             </MenuButton>
-            <MenuList className="bg-slate-900 text-white w-[160px] px-[10px] rounded-xl ml-[1px] pt-[3px]">
+            <MenuList className="bg-slate-900 text-white w-[fit-content] px-[10px] rounded-xl ml-[1px] pt-[3px]">
               <MenuItem  onClick={() => setSwapToken2('MATIC')}>
                 <Image
                   boxSize="2rem"

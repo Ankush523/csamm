@@ -59,6 +59,15 @@ contract CSAMM {
         tokenOut.transfer(msg.sender, amountOut);
     }
 
+    function giveReserve0() external view returns(uint)
+    {
+        return reserve0;
+    }
+    function giveReserve1() external view returns(uint)
+    {
+        return reserve1;
+    }
+
     function addLiquidity(uint _amount0, uint _amount1) external returns (uint shares) {
         token0.transferFrom(msg.sender, address(this), _amount0);
         token1.transferFrom(msg.sender, address(this), _amount1);
