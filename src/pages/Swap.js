@@ -1,6 +1,5 @@
 import React from 'react'
 import { Select } from '@chakra-ui/react';
-import {MdArrowDropDown} from 'react-icons/md'
 const Swap = () => {
   return (
     <div className='flex flex-col justify-center items-center'>
@@ -8,16 +7,17 @@ const Swap = () => {
             <label className='text-left pl-[15px] text-white my-[10px] font-semibold'>Swap</label>
 
             <div className='flex flex-row justify-between bg-white mx-[10px] py-[20px] rounded-xl mb-[5px]'>
-                <input className='w-[240px] ml-[10px] h-[50px] text-4xl' placeholder='0'/>
-                <Select icon={<MdArrowDropDown />} placeholder='Select token' className='my-[10px] text-xl text-center font-semibold'>
+                <input className='w-[235px] ml-[10px] h-[50px] text-4xl' placeholder='0'/>
+                <Select  placeholder='Select token' className='my-[10px] text-xl text-center font-semibold'>
                     <option value='MATIC'>MATIC</option>
                     <option value='USDC'>USDC</option>
+                    <img src="https://cdn.jsdelivr.net/gh/atomiclabs/cryptocurrency-icons@1a63530be6e374711a8554f31b17e4cb92c25fa5/svg/color/matic.svg" alt='icon' />
                 </Select>
             </div>
 
 
             <div className='flex flex-row justify-between bg-white mx-[10px] py-[20px] rounded-xl mb-[20px]'>
-                <input className='w-[240px] ml-[10px] h-[50px] text-4xl' placeholder='0'/>
+                <input className='w-[235px] ml-[10px] h-[50px] text-4xl' placeholder='0'/>
                 <Select placeholder='Select token' className='my-[10px] text-xl text-center font-semibold'>
                     <option value='MATIC'>MATIC</option>
                     <option value='USDC'>USDC</option>
