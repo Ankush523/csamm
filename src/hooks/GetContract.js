@@ -8,7 +8,7 @@ const GetContract = () => {
     const{data:signer}=useSigner();
 
     const contract = useContract({
-        addressOrName: '0x40575e43BB7eF49Ca7027BBBEDafb927aE93a676',
+        addressOrName: '0xAAc0E96668433475a9074a3a43080975a28EA947',
         contractInterface: CSAMMABI,
         signerOrProvider: signer,
       })
