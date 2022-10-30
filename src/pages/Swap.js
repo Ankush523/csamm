@@ -17,7 +17,9 @@ const Swap = () => {
   const contract = GetContract();
   const swap = async() => {
     const tx = await contract.swap(swaptoken1, swapamount);
-    await tx.wait();
+    // await tx.wait();
+    var balancet1 = await contract.getReserve0();
+    var balancet2 = await contract.getReserve1();
   }
 
   return (
@@ -59,10 +61,7 @@ const Swap = () => {
         </div>
 
         <div className="flex flex-row justify-between bg-white mx-[10px] py-[20px] rounded-xl mb-[20px]">
-          <input
-            className="w-[235px] ml-[10px] h-[50px] text-4xl"
-            placeholder="0"
-          />
+          <label className="w-[235px] ml-[10px] h-[50px] text-4xl" placeholder="0">{swaptoken1}</label>
           <Menu >
             <MenuButton as={Button} rightIcon={<ChevronDownIcon />} className="mr-[10px] h-[30px] my-[10px] font-semibold text-xl rounded-xl bg-slate-200 px-[10px]">
                 <label>{swaptoken2}</label>
@@ -93,7 +92,7 @@ const Swap = () => {
         </div>
 
         <div>
-          <button className="w-[95.5%] h-[60px] rounded-xl bg-slate-200 text-black mb-[10px] font-semibold text-xl">
+          <button className="w-[95.5%] h-[60px] rounded-xl bg-slate-200 text-black mb-[10px] font-semibold text-xl" onClick={() => swap()}>
             Select a token
           </button>
         </div>
